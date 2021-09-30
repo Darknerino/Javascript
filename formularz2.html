@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <script>
+function a () {
+    if (document.querySelectorAll("input")[1].value != document.querySelectorAll("input")[2].value) {
+        document.querySelector("div").innerHTML = "<p style='color:red;'>Hasła nie są takie same! Ponownie podaj dane</p>";
+    }
+    else if (document.querySelectorAll("input")[1].value == "" || document.querySelectorAll("input")[2].value == "") {
+        document.querySelector("div").innerHTML = "<p style='color:red;'>Pole hasło nie może być puste!</p>";
+    }
+    else {
+        document.querySelector("div").innerHTML = "<p style='color:green;'>Hasła są poprawne!</p>";
+    }
+}
+
+function b () {
+    for(i=0;i<3;i++) {
+        document.querySelectorAll("input")[i].value = null;
+    }
+}
+        </script>
+    </head>
+
+    <body>
+        <form onsubmit="return false">
+            <p>Podaj login <input type="text"></p>
+            <p>Podaj hasło <input type="password"></p>
+            <p>Powtórz hasło <input type="password"></p>
+            <input type="submit" value="Rejestruj" onclick="a()">
+            <input type="submit" value="Wyczyść" onclick="b()">
+        </form>
+        <div></div>
+    </body>
+</html>
